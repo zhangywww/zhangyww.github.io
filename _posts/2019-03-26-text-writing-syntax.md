@@ -9,6 +9,9 @@ article_header:
     src: /screenshot.jpg
 ---
 
+本文对jekyll主题中写作的一些语法格式进行介绍。
+<!--more-->
+
 ## YAML Front Matter
 YAML Front Matter是写在每个markdown文件头部的配置信息。配置信息说明如下：
 ```
