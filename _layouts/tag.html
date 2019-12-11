@@ -1,12 +1,12 @@
 ---
-title: zhangyw
+layout: none
 ---
-
+  
 <html>
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="/assets/css/tagpage.css"/>
 		<script type="text/javascript" src="/assets/js/jquery.3.4.1.js"></script>
 		<script type="text/javascript">
 			$( document ).ready(function() {
@@ -29,7 +29,7 @@ title: zhangyw
 			</div>
 			<div id="header-title-wrap">
 				<h1 id="header-title">
-					{{ page.title }} 
+					标签: {{ page.title }} 
 				</h1>
 			</div>
 		</header>
@@ -51,31 +51,33 @@ title: zhangyw
 				<div id="nav-content-wrap">
 				{% for tag in site.tags %}
 					<a href="/tag/{{tag[0]}}.html">
-						<div class="nav-content-item">{{ tag[0] }}</div>
+						<div class="nav-content-item nav-tag-{{tag[0]}}">{{ tag[0] }}</div>
 					</a>
 				{% endfor %}
 				</div>
 			</div>
 		</nav>
 		<div id="content">
+			{% assign d = "no" %}
+			{% for post in site.tags[page.tag] %}
+				{% assign cur_year = post.date | date: "%Y" %}
+				{% if cur_year != d %}
+					{% assign d = cur_year %}
+			<div class="post-year">{{ d }}</div>
+				{% endif %}
+					
+			<div class="post-wrap">
+				<span class="post-date"> {{ post.date | date: "%m月%d日"}} </span>
+				<span class="post-title"> 
+						<a href="{{ post.url }}"> {{ post.title }} </a>
+				</span>
+			</div>
 				
-			{% for post in site.posts %}
-				<div class="post-wrap">
-					<div class="post-title-wrap"> 
-						<div class="post-title"> 
-							<a href="{{ post.url }}"> {{ post.title }} </a>
-						</div>
-					</div>
-					<div class="post-info-wrap">
-						{% for tag in post.tags %}
-						<a href="/tag/{{tag}}.html">
-							<span class="post-tag"> {{ tag }} </span>
-						</a>
-						{% endfor %}
-						<span class="post-date"> {{ post.date | date: "%Y年%m月%d日"}} </span>
-					</div>
-				</div>
 			{% endfor %}
 		</div>
+		
+		
+		
+		
 	</body>
 </html>

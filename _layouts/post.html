@@ -1,0 +1,126 @@
+---
+layout: none
+---
+
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/postpage.css"/>
+		<script type="text/javascript" src="/assets/js/jquery.3.4.1.js"></script>
+		<script type="text/javascript">
+			$( document ).ready(function() {
+				$(".nav-tag-{{page.tag}}").css("backgroundColor","#AAA");
+				$("#header-menu-wrap").click(function(){
+					$("#page-nav").css("display","block");
+					$("#page-mask").css("display","block");
+				});
+				$("#header-toc-wrap").click(function(){
+					$("#page-toc").css("display","block");
+					$("#page-mask").css("display","block");
+				});
+				
+				$("#nav-header-close-wrap").click(function(){
+					$("#page-nav").css("display","none");
+					$("#page-mask").css("display","none");
+				});
+				$("#page-mask").click(function(){
+					$("#page-nav").css("display","none");
+					$("#page-mask").css("display","none");
+					$("#page-toc").css("display", "none");
+				});
+				
+				//var content = document.getElementById("content");
+				//var tocContent = document.getElementById("page-toc-content");
+				
+				$("#content").children("h1").each(function(h1_index){
+					var h1 = $(this);
+					var i = h1_index+1;
+					$("#page-toc-content").append(
+						'<div class="toc-h1">'
+						+ i + ' '
+						+ '<a href="#' + h1.attr("id") + '">' 
+						+ h1.html() 
+						+ '</a></div>');
+					
+					h1.nextUntil("h1","h2").each(function(h2_index){
+						var h2 = $(this);
+						var j = h2_index+1;
+						$("#page-toc-content").append(
+							'<div class="toc-h2">'
+							+ i + '.' + j + ' '
+							+ '<a href="#' + h2.attr("id") + '">' 
+							+ h2.html() 
+							+ '</a></div>');
+						h2.nextUntil("h2","h3").each(function(h3_index){
+							var h3 = $(this);
+							var k = h3_index+1;
+							$("#page-toc-content").append(
+								'<div class="toc-h3">'
+								+ i + '.' + j + '.' + k + ' '
+								+ '<a href="#' + h3.attr("id") + '">' 
+								+ h3.html() 
+								+ '</a></div>');
+						});
+					});
+				});
+				
+				$(".toc-h1").css("marginLeft","10px");
+				$(".toc-h2").css("marginLeft","38px");
+				$(".toc-h3").css("marginLeft","66px");
+			});
+		</script>
+	</head>
+	<body>
+		<header id="page-header">
+			<div id="header-menu-wrap">
+				<img id="header-menu-img", src="/assets/blog/menu.png" />
+			</div>
+			<div id="header-toc-wrap">
+				<img id="header-toc-img" src="/assets/blog/toc.png"/>
+			</div>
+			<div id="header-title-wrap">
+				<h1 id="header-title">
+					{{ page.title }} 
+				</h1>
+			</div>
+			
+		</header>
+		<div id="page-mask"></div>
+		<nav id="page-nav">
+			<div id="nav-wrap">
+				<div id="nav-header-wrap">
+					<div id="nav-header">
+						<div id="nav-header-close-wrap">
+							<img id ="nav-header-close", src="/assets/blog/close-nav.png" />
+						</div>
+					</div>
+				</div>
+				<div id="nav-info-wrap">
+					<div id="nav-info">
+						zhangyw
+					</div>
+				</div>
+				<div id="nav-content-wrap">
+				{% for tag in site.tags %}
+					<a href="/tag/{{tag[0]}}.html">
+						<div class="nav-content-item">{{ tag[0] }}</div>
+					</a>
+				{% endfor %}
+				</div>
+			</div>
+		</nav>
+		
+		<nav id="page-toc">
+			<div id="page-toc-header">
+				目录
+			</div>
+			<div id="page-toc-content">
+			</div>
+		</nav>
+		
+		<div id="content">
+			{{ content }}
+		</div>
+	</body>
+</html>
