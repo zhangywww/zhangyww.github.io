@@ -127,6 +127,10 @@ body {
 	line-height: 32px;
 }
 
+.post-info-wrap a{
+	text-decoration: none;
+}
+
 .post-tag {
 	margin: 0px 6px;
 	padding: 2px 8px;
