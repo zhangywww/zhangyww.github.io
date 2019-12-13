@@ -11,7 +11,7 @@ body {
 	top: 0px;
 	padding: 0px;
 	border-bottom: 1px solid #DDD;
-	height: 32px;
+	height: 40px;
 	width: 100%;
 	background: #FFF;
 	box-shadow: 0px 1px 4px #ddd;
@@ -22,9 +22,9 @@ body {
 }
 
 #header-menu-img {
-	margin: 6px;
-	width: 20px;
-	height: 20px;
+	margin: 8px;
+	width: 24px;
+	height: 24px;
 }
 
 #header-title-wrap {
@@ -34,8 +34,8 @@ body {
 
 #header-title {
 	margin: 0px;
-	height: 32px;
-	line-height: 32px;
+	height: 40px;
+	line-height: 40px;
 	font-size: 20px;
 	text-align: center;
 }
@@ -44,9 +44,9 @@ body {
 	float: right;
 }
 #header-toc-img {
-	margin: 6px;
-	width: 20px;
-	height: 20px;
+	margin: 8px;
+	width: 24px;
+	height: 24px;
 }
 
 #page-mask {
@@ -130,12 +130,17 @@ body {
 
 
 
-
+:target:before {
+	content: "";
+	display: block;
+	height: 53px;
+	margin: -53px 0 0;
+}
 
 #content {
 	margin: 0px auto;
 	padding: 0px 16px;
-	padding-top: 48px;
+	padding-top: 32px;
 	max-width: 720px;
 }
 
