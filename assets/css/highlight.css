@@ -1,4 +1,12 @@
-.highlight { color: #FFF; overflow-x: scroll;}
+pre.highlight { 
+	padding: 8px; 
+	overflow-x: auto; 
+	font-size: 14px;
+}
+pre.highlight span { 
+	font-family: Monaco, "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+.highlight { color: #dddddd; }
 .highlight pre { background-color: #272822; }
 .highlight .hll { background-color: #272822; }
 .highlight .c { color: #75715e } /* Comment */
@@ -9,7 +17,7 @@
 .highlight .o { color: #f92672 } /* Operator */
 .highlight .p { color: #f8f8f2 } /* Punctuation */
 .highlight .cm { color: #75715e } /* Comment.Multiline */
-.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .cp { color: #dddddd } /* Comment.Preproc #75715e*/
 .highlight .c1 { color: #75715e } /* Comment.Single */
 .highlight .cs { color: #75715e } /* Comment.Special */
 .highlight .ge { font-style: italic } /* Generic.Emph */

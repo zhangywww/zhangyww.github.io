@@ -35,39 +35,57 @@ layout: none
 				
 				$("#content").children("h1").each(function(h1_index){
 					var h1 = $(this);
-					var i = h1_index+1;
+					//var i = h1_index+1;
 					$("#page-toc-content").append(
 						'<div class="toc-h1">'
-						+ i + ' '
+						//+ i + ' '
 						+ '<a href="#' + h1.attr("id") + '">' 
 						+ h1.html() 
 						+ '</a></div>');
 					
 					h1.nextUntil("h1","h2").each(function(h2_index){
 						var h2 = $(this);
-						var j = h2_index+1;
+						//var j = h2_index+1;
 						$("#page-toc-content").append(
 							'<div class="toc-h2">'
-							+ i + '.' + j + ' '
+							//+ i + '.' + j + ' '
 							+ '<a href="#' + h2.attr("id") + '">' 
 							+ h2.html() 
 							+ '</a></div>');
 						h2.nextUntil("h2","h3").each(function(h3_index){
 							var h3 = $(this);
-							var k = h3_index+1;
+							//var k = h3_index+1;
 							$("#page-toc-content").append(
 								'<div class="toc-h3">'
-								+ i + '.' + j + '.' + k + ' '
+								//+ i + '.' + j + '.' + k + ' '
 								+ '<a href="#' + h3.attr("id") + '">' 
 								+ h3.html() 
 								+ '</a></div>');
 						});
 					});
 				});
+				$(".toc-h1").css({
+					"marginLeft":	"10px",
+					"overflow":		"wrap",
+					"word-wrap":	"break-word",
+					"font-size":	"14px",
+				});
+				$(".toc-h2").css({
+					"marginLeft":	"38px",
+					"overflow":		"wrap",
+					"word-wrap":	"break-word",
+					"font-size":	"14px",
+				});
+				$(".toc-h3").css({
+					"marginLeft":	"66px",
+					"overflow":		"wrap",
+					"word-wrap":	"break-word",
+					"font-size":	"14px",
+				});
 				
-				$(".toc-h1").css("marginLeft","10px");
-				$(".toc-h2").css("marginLeft","38px");
-				$(".toc-h3").css("marginLeft","66px");
+				$(".toc-h1 a").css("text-decoration","none").css("color","#6278cc");
+				$(".toc-h2 a").css("text-decoration","none").css("color","#000000");
+				$(".toc-h3 a").css("text-decoration","none").css("color","#444444");
 			});
 		</script>
 	</head>

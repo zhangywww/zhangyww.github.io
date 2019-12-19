@@ -14,7 +14,7 @@ body {
 	height: 40px;
 	width: 100%;
 	background: #FFF;
-	box-shadow: 0px 1px 4px #ddd;
+	box-shadow: 0px 1px 1px rgba(100,100,0, 0.1);
 }
 
 #header-menu-wrap {
@@ -36,8 +36,9 @@ body {
 	margin: 0px;
 	height: 40px;
 	line-height: 40px;
-	font-size: 20px;
+	font-size: 16px;
 	text-align: center;
+	font-family: "Microsoft JhengHei";
 }
 
 #header-toc-wrap {
@@ -58,8 +59,7 @@ body {
 	padding: 0px;
 	width: 100%;
 	height: 100%;
-	background-color: #AAA;
-	opacity:0.5;
+	background: rgba(0, 0, 0, .7);
 }
 
 #page-nav {
@@ -130,46 +130,47 @@ body {
 
 
 
+
+
+#content {
+	margin: 0px auto;
+	padding: 0px 8px;
+	padding-top: 32px;
+	max-width: 720px;
+}
+
+#content h1 {
+	font-size: 18px;
+	overflow: wrap;
+	word-wrap: break-word;
+	color: #6278cc;
+}
+
+#content h2 {
+	border-left: 2px solid #6278cc;
+	background-color: #EEE;
+	padding-left: 6px;
+	font-size: 16px;
+	overflow: wrap;
+	word-wrap: break-word;
+}
+
+#content h3 {
+	margin-top: 6px;
+	font-size: 16px;
+	overflow: wrap;
+	word-wrap: break-word;
+}
+
+#content p {
+	font-size: 14px;
+	font-family: "Microsoft YaHei";
+	color: #333;
+}
+
 :target:before {
 	content: "";
 	display: block;
 	height: 53px;
 	margin: -53px 0 0;
-}
-
-#content {
-	margin: 0px auto;
-	padding: 0px 16px;
-	padding-top: 32px;
-	max-width: 720px;
-}
-
-.post-wrap {
-	margin-top: 16px;
-	border-bottom: 1px solid #EEE;
-}
-
-.post-title {
-	padding: 8px;
-	font-size: 20px;
-}
-
-.post-info-wrap {
-	height: 32px;
-	line-height: 32px;
-}
-
-.post-tag {
-	margin: 0px 6px;
-	padding: 2px 8px;
-	font-size: 14px;
-	color: #333;
-	background-color: #EEE;
-	border-radius: 12px;
-}
-
-.post-date {
-	float: right;
-	font-size: 14px;
-	color: #888;
 }
