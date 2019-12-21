@@ -14,10 +14,12 @@ layout: none
 				$("#header-menu-wrap").click(function(){
 					$("#page-nav").css("display","block");
 					$("#page-mask").css("display","block");
+					$("body").css("overflow-y","hidden");
 				});
 				$("#nav-header-close-wrap").click(function(){
 					$("#page-nav").css("display","none");
 					$("#page-mask").css("display","none");
+					$("body").css("overflow-y","auto");
 				});
 			});
 		</script>
@@ -45,7 +47,7 @@ layout: none
 				</div>
 				<div id="nav-info-wrap">
 					<div id="nav-info">
-						zhangyw
+						<a href="/">zhangyw</a>
 					</div>
 				</div>
 				<div id="nav-content-wrap">

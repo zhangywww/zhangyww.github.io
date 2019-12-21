@@ -21,7 +21,8 @@
 
 markdown: kramdown
 kramdown:
-    highlighter: rouge
+  input: GFM
+  syntax_highlighter: rouge
 
 
 title: zhangyw

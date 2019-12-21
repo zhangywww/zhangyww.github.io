@@ -84,7 +84,50 @@ switch_status_t name SWITCH_MODULE_RUNTIME_ARGS
 #define SWITCH_MODULE_RUNTIME_FUNCTION(name) \
 switch_status_t name (void)
 ```
+
+# 写一个API
+
+```c
+switch_api_interface_t *api_interface = NULL;
+
+SWITCH_ADD_API(api_interface, "example", "example description", 
+	example_api_func, "");
 ```
+
+其中的**switch_api_interface_t**类型是一个结构类型，SWITCH_ADD_API是一个宏。他们的定义如下。
+
+```c
+//API结构体类型
+struct switch_api_interface {
+	/*! the name of the interface */
+	const char *interface_name;
+	/*! a description of the api function */
+	const char *desc;
+	/*! function the api call uses */
+	switch_api_function_t function;
+	/*! an example of the api syntax */
+	const char *syntax;
+	switch_thread_rwlock_t *rwlock;
+	int refs;
+	switch_mutex_t *reflock;
+	switch_loadable_module_interface_t *parent;
+	struct switch_api_interface *next;
+};
+
+//添加API的宏
+#define SWITCH_ADD_API(api_int, int_name, descript, funcptr, syntax_string) \
+	for (;;) { \
+	api_int = (switch_api_interface_t *)switch_loadable_module_create_interface(*module_interface, SWITCH_API_INTERFACE); \
+	api_int->interface_name = int_name; \
+	api_int->desc = descript; \
+	api_int->function = funcptr; \
+	api_int->syntax = syntax_string; \
+	break; \
+	}
+```
+
+
+# 写一个APP
 
 
 

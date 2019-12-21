@@ -38,7 +38,6 @@ body {
 	line-height: 40px;
 	font-size: 18px;
 	text-align: center;
-	font-family: "Microsoft JhengHei";
 }
 
 #header-toc-wrap {
@@ -140,6 +139,7 @@ body {
 }
 
 #content h1 {
+	border-bottom: 1px solid #eee;
 	font-size: 18px;
 	overflow: wrap;
 	word-wrap: break-word;
@@ -147,7 +147,8 @@ body {
 }
 
 #content h2 {
-	padding-left: 6px;
+	border-bottom: 1px solid #eee;
+	padding-left: 24px;
 	font-size: 16px;
 	overflow: wrap;
 	word-wrap: break-word;
@@ -155,6 +156,7 @@ body {
 }
 
 #content h3 {
+	padding-left: 24px;
 	margin-top: 6px;
 	font-size: 16px;
 	overflow: wrap;
