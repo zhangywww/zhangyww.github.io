@@ -36,7 +36,7 @@ body {
 	margin: 0px;
 	height: 40px;
 	line-height: 40px;
-	font-size: 16px;
+	font-size: 18px;
 	text-align: center;
 	font-family: "Microsoft JhengHei";
 }
@@ -143,16 +143,15 @@ body {
 	font-size: 18px;
 	overflow: wrap;
 	word-wrap: break-word;
-	color: #6278cc;
+	color: #e64f64;
 }
 
 #content h2 {
-	border-left: 2px solid #6278cc;
-	background-color: #EEE;
 	padding-left: 6px;
 	font-size: 16px;
 	overflow: wrap;
 	word-wrap: break-word;
+	color: #309e61;
 }
 
 #content h3 {
@@ -160,10 +159,11 @@ body {
 	font-size: 16px;
 	overflow: wrap;
 	word-wrap: break-word;
+	color: #6278cc;
 }
 
 #content p {
-	font-size: 14px;
+	font-size: 16px;
 	font-family: "Microsoft YaHei";
 	color: #333;
 }

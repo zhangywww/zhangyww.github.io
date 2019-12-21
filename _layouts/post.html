@@ -14,20 +14,25 @@ layout: none
 				$("#header-menu-wrap").click(function(){
 					$("#page-nav").css("display","block");
 					$("#page-mask").css("display","block");
+					$("body").css("overflow-y","hidden");
 				});
 				$("#header-toc-wrap").click(function(){
 					$("#page-toc").css("display","block");
 					$("#page-mask").css("display","block");
+					$("body").css("overflow-y","hidden");
+					
 				});
 				
 				$("#nav-header-close-wrap").click(function(){
 					$("#page-nav").css("display","none");
 					$("#page-mask").css("display","none");
+					$("body").css("overflow-y","auto");
 				});
 				$("#page-mask").click(function(){
 					$("#page-nav").css("display","none");
 					$("#page-mask").css("display","none");
 					$("#page-toc").css("display", "none");
+					$("body").css("overflow-y","auto");
 				});
 				
 				//var content = document.getElementById("content");
@@ -74,18 +79,18 @@ layout: none
 					"marginLeft":	"38px",
 					"overflow":		"wrap",
 					"word-wrap":	"break-word",
-					"font-size":	"14px",
+					"font-size":	"12px",
 				});
 				$(".toc-h3").css({
 					"marginLeft":	"66px",
 					"overflow":		"wrap",
 					"word-wrap":	"break-word",
-					"font-size":	"14px",
+					"font-size":	"12px",
 				});
 				
-				$(".toc-h1 a").css("text-decoration","none").css("color","#6278cc");
-				$(".toc-h2 a").css("text-decoration","none").css("color","#000000");
-				$(".toc-h3 a").css("text-decoration","none").css("color","#444444");
+				$(".toc-h1 a").css("text-decoration","none").css("color","#e64f64");
+				$(".toc-h2 a").css("text-decoration","none").css("color","#309e61");
+				$(".toc-h3 a").css("text-decoration","none").css("color","#6278cc");
 			});
 		</script>
 	</head>

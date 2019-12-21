@@ -1,8 +1,13 @@
+pre code{
+  white-space: pre;
+}
+
 pre.highlight { 
 	padding: 8px; 
 	overflow-x: auto; 
 	font-size: 14px;
 }
+
 pre.highlight span { 
 	font-family: Monaco, "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 }
