@@ -6,6 +6,7 @@ pre.highlight {
 	padding: 8px; 
 	overflow-x: auto; 
 	font-size: 14px;
+	border-radius: 8px;
 }
 
 pre.highlight span { 
