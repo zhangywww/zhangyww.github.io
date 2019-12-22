@@ -129,5 +129,30 @@ struct switch_api_interface {
 
 # 写一个APP
 
+```c
+SWITCH_ADD_APP(app_interface, 
+			"project_internal",
+			"internal", 
+			"internal",
+			project_internal_function, 
+			"", 
+			SAF_SUPPORT_NOMEDIA | SAF_ROUTING_EXEC);
+```
+
+其中**SWITCH_ADD_APP**是一个宏，定义为
+
+```c
+#define SWITCH_ADD_APP(app_int, int_name, short_descript, long_descript, funcptr, syntax_string, app_flags) \
+	for (;;) { \
+	app_int = (switch_application_interface_t *)switch_loadable_module_create_interface(*module_interface, SWITCH_APPLICATION_INTERFACE); \
+	app_int->interface_name = int_name; \
+	app_int->application_function = funcptr; \
+	app_int->short_desc = short_descript; \
+	app_int->long_desc = long_descript; \
+	app_int->syntax = syntax_string; \
+	app_int->flags = app_flags; \
+	break; \
+	}
+```
 
 
