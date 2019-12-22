@@ -94,6 +94,15 @@ body {
 #nav-info-wrap {
 	height: 64px;
 }
+#nav-info {
+	text-align: center;
+}
+#nav-info a{
+	font-size: 24px;
+	color: #222;
+	text-shadow: 5px 5px 0 #DDD, 7px 7px 0 #eee;
+	text-decoration: none;
+}
 
 .nav-content-item {
 	float: left;
