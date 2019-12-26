@@ -185,3 +185,21 @@ body {
 	height: 53px;
 	margin: -53px 0 0;
 }
+
+blockquote {
+	margin: 0;
+	padding: 0 6px;
+	display: block;
+	border-left: 2px solid #666;
+	background-color: #eee;
+}
+
+blockquote a {
+	display: block;
+	text-decoration: none;
+	font-size: 14px;
+	color: #222;
+}
+blockquote a:before{
+	content: "> "
+}
