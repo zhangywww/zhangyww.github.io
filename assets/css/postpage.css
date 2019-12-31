@@ -176,7 +176,7 @@ body {
 #content p {
 	font-size: 16px;
 	font-family: "Microsoft YaHei";
-	color: #333;
+	color: #000;
 }
 
 :target:before {
