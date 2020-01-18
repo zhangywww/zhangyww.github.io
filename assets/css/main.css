@@ -158,6 +158,13 @@ a {
 	border-radius: 12px;
 }
 
+
+
+.post-date-img {
+	height: 16px;
+	width: 16px;
+	margin-right: 4px;
+}
 .post-date {
 	float: right;
 	font-size: 14px;
