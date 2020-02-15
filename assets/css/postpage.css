@@ -136,6 +136,9 @@ body {
 	border-left: 1px solid #888;
 }
 
+#page-toc-content {
+	overflow-y: scroll;
+}
 
 
 
