@@ -29,11 +29,8 @@ switch_channel_set_variable_var_check中，**channel**为对应的通道，
 布尔值，用于设置是否对value进行变量检测，如果需要检测, 而且value
 中含有变量(含有连续的 "${" 就认为含有变量)，那么就认为该value是
 无效的，而且**不会**设置该通道变量，但是会返回**SWITCH_STATUS_SUCCESS**。
-并用如下的代码打印一个CRTI级别的日志。
+并打印一个CRTI级别的日志(Invalid data (key contains a variable)\n")
 
-```
-switch_log_printf(SWITCH_CHANNEL_CHANNEL_LOG(channel), SWITCH_LOG_CRIT, "Invalid data (${%s} contains a variable)\n", varname);
-```
 
 对switch_channel_set_variable的调用总结：
 - 所有的通道变量存储在**channel->variables**结构中(一个switch_event结构体指针)。
