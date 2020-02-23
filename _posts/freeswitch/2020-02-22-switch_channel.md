@@ -52,6 +52,12 @@ switch_channel_set_variable_var_check中，**channel**为对应的通道，
 - 以**SWITCH_STACK_BOTTOM**的形式在尾部进行增加到**switch_event_header**的链表尾部。
 - **switch_event_header**有一个key的整数hash值，用于提高查询速度。
 - 会根据**channel->variables**这个switch_event结构是否含有EF_UNIQ_HEADERS标识，来对重复key的处理。
+  因为在创建session的时候，session的channel->variables的eventid设置成了SWITCH_EVENT_CHANNEL_DATA,
+  而SWITCH_EVENT_REQUEST_PARAMS 和 variables的eventid设置成了 SWITCH_EVENT_CHANNEL_DATA 这两种switch_event类型
+  都会设置**EF_UNIQ_HEADERS**的flags. 因此设置通道变量是能重复key的，重复会删除先前的再插入新的。
+  (在通过switch_event_create函数创建event时，若event_id指定为而**SWITCH_EVENT_REQUEST_PARAMS**，
+  **SWITCH_EVENT_CHANNEL_DATA** 或 **SWITCH_EVENT_MESSAGE**三个中的其中一个，都会设置event->flags增加
+  **EF_UNIQ_HEADERS**。
 
 ## switch_channel_get_variable
 
@@ -82,5 +88,6 @@ switch_channel_get_variable_dup中传如的dup值为SWITCH_TRUE，说明获取�
   以**aleg_**后的作为key在**profile->originator_caller_profile**中查找对应的变量，
   如果key以**bleg_**开头，以**bleg_**后的作为key在**profile->originatee_caller_profile**
   查找对应的变量。如果还是找不到，那么就通过switch_core_get_variable_pdup获取系统变量值。
+- 获取通道变量过程中会使用**channel->profile_mutex**进行加锁。
 - 不能数组索引的方式获取值，只能通过数组key获取数组的字符串表示。
 - key为**_body**可以获取第一个非NULL的switch_event的body值。
