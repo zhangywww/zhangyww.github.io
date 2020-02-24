@@ -160,8 +160,6 @@ body {
 }
 
 #content h2 {
-	border-bottom: 1px solid #eee;
-	padding-left: 24px;
 	font-size: 16px;
 	overflow: wrap;
 	word-wrap: break-word;
@@ -169,7 +167,7 @@ body {
 }
 
 #content h3 {
-	padding-left: 24px;
+	padding-left: 12px;
 	margin-top: 6px;
 	font-size: 16px;
 	overflow: wrap;
@@ -181,6 +179,13 @@ body {
 	font-size: 16px;
 	font-family: "Microsoft YaHei";
 	color: #000;
+}
+
+#content p strong {
+	font-weight: normal;
+	color: rgb(207, 111, 2);
+	margin: 0 4px;
+	padding: 0 4px;
 }
 
 :target:before {
