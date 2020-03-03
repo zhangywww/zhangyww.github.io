@@ -96,3 +96,22 @@ tech_pvt->caller_profile = caller_profile;
 
 在对新建立的channel建立一系列的初始化之后，将channel的state设置成了**CS_INIT**，
 并将nsession赋值给了传进来的**new_session**，用于返回。
+
+## CS_ROUTING
+
+**CS_ROUTING**表明正在处于dialplan的路由阶段。在路由阶段，会根据呼叫的信息跟dialplan中的规则进行
+匹配，找出一系列App用于对该呼叫的会话来执行一系列操作。
+
+在switch_channel.c中有个**switch_channel_transfer_to_extension**函数，其代码如下
+```c
+// switch_channe.c #3163
+void switch_channel_transfer_to_extension(switch_channel_t *channel, switch_caller_extension_t *caller_extension)
+{
+	switch_mutex_lock(channel->profile_mutex);
+	channel->queued_extension = caller_extension;
+	switch_mutex_unlock(channel->profile_mutex);
+
+	switch_channel_set_flag(channel, CF_TRANSFER);
+	switch_channel_set_state(channel, CS_ROUTING);	
+}
+```

@@ -128,6 +128,7 @@ void switch_channel_event_set_basic_data(switch_channel_t *channel, switch_event
 		originatee_caller_profile = caller_profile->originatee_caller_profile;
 	}
 
+	//switch_event_add_header_string会对value进行拷贝，因此value是当前的状态
 	switch_event_add_header_string(event, SWITCH_STACK_BOTTOM, "Channel-State", switch_channel_state_name(channel->running_state));
 	switch_event_add_header_string(event, SWITCH_STACK_BOTTOM, "Channel-Call-State", switch_channel_callstate2str(channel->callstate));
 	switch_snprintf(state_num, sizeof(state_num), "%d", channel->state);
@@ -302,3 +303,21 @@ void switch_channel_event_set_extended_data(switch_channel_t *channel, switch_ev
 	switch_mutex_unlock(channel->profile_mutex);
 ```
 
+
+## switch_channel_set_private
+
+**switch_channel_set_prvivate**将key对应的value(可以为任意类型void\*)存储在channel的privaie_hash表示的
+哈希表中。和channel_variable不同，**channel_variable**是存储在链表中的。
+```c
+// switch_channel.c #1055
+// SWITCH_DECLARE(switch_status_t) switch_channel_set_private(switch_channel_t *channel, const char *key, const void *private_info)
+switch_status_t switch_channel_set_private(switch_channel_t *channel, const char *key, const void *private_info)
+{
+	switch_assert(channel != NULL);
+	switch_core_hash_insert_locked(channel->private_hash, key, private_info, channel->profile_mutex);
+	return SWITCH_STATUS_SUCCESS;
+}
+```
+
+## switch_channel_get_private
+**switch_channel_get_private**从channel->private_hash对应的哈希表中取出key对应的value值。
